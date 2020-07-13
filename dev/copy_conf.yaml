@@ -1,0 +1,34 @@
+---
+
+- hosts: localhost
+
+  tasks:
+   - name: Get time and facts
+     setup:
+      filter: "ansible_date_time"
+      gather_subset: "!all"
+
+   - name: "Store date and time as fact"
+     set_fact:
+       DTG: "{{ ansible_date_time.date }}"
+
+   - name: "Create Directory {{hostvars.localhost.DTG}}"
+     file:
+      path: ~/Documents/backups/{{hostvars.localhost.DTG}}
+      state: directory
+  run_once: true
+
+- hosts: routers 
+  gather_facts: false
+
+  tasks:
+   - name: Show Run Config
+     ios_command:
+       commands:
+        - show run
+     register: config
+
+   - name: Save output to drive
+     copy:
+       content: "{{config.stdout[0]}}"
+       dest: "~/Documents/backups/{{hostvars.localhost.DTG}}/{{inventory_hostname}}-{{hostvars.localhost.DTG}}-config.txt"
