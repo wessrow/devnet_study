@@ -1,0 +1,12 @@
+PYTHONWARNINGS="ignore:Unverified HTTPS request"
+
+#DevNet Nexus
+ios_nx_ip='sbx-nxos-mgmt.cisco.com'
+ios_nx_usr='admin'
+ios_nx_psswrd='Admin_1234!'
+
+#Devnet DNA Center
+dna_cent_ip='https://sandboxdnac.cisco.com'
+dna_cent_usr='devnetuser'
+dna_cent_psswrd='Cisco123!'
+dna_cent_token=''
