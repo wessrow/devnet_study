@@ -30,5 +30,3 @@ def get_information(device):
 data = get_information(load_variables())
 
 print(json.dumps((data[0], data[1]), indent=2))
-
-##testcommmit
