@@ -3,7 +3,7 @@ from netmiko import ConnectHandler
 
 def load_variables():
 
-    with open('../nexus_handler/devnet_env_var.json', 'r') as variables:
+    with open('dev/nexus_handler/devnet_env_var.json', 'r') as variables:
         device = json.load(variables)
 
         ios_device = {
