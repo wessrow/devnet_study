@@ -23,10 +23,10 @@ def get_information(device):
     
     json_data = json.loads(output)
 
-    #int_number = len(json_data['TABLE_intf']['ROW_intf'])
+    int_number = len(json_data['TABLE_intf']['ROW_intf'])
 
-    return json_data
+    return int_number, json_data
 
-device = load_variables()
+data = get_information(load_variables())
 
-print(get_information(device))
+print(json.dumps((data[0], data[1]), indent=2))
