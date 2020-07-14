@@ -14,6 +14,7 @@ def Get_Information():
 
     net_connect = ConnectHandler(**xe_os)
     output = net_connect.send_command('show ip int brief | json-pretty')
+    
     json_data = json.loads(output)
 
     int_number = len(json_data['TABLE_intf']['ROW_intf'])
