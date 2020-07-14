@@ -1,6 +1,19 @@
 import json
+from netmiko import ConnectHandler
 
-with open('../nexus_handler/devnet_env_var.json', 'r') as variables:
-    my_dict = json.load(variables)
+def load_variables():
 
-print(my_dict['Devnet_Nexus']['ios_nx_ip'])
+    with open('../nexus_handler/devnet_env_var.json', 'r') as variables:
+        device = json.load(variables)
+
+    ios_device = {
+        'device_type': 'cisco_ios',
+        'ip': device['Devnet_Nexus']['ios_nx_ip'],
+        'username': device['Devnet_Nexus']['ios_nx_user'],
+        'password': device['Devnet_Nexus']['ios_nx_password'],
+        'port': 8181
+    }
+
+    return ios_device
+
+print(json.dumps(load_variables(), indent=2))
