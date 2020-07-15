@@ -57,4 +57,3 @@ def presenting_interfaces():
             print('\t Connection Error - No interfaces to display.', '\n')
 
 presenting_interfaces()
-
