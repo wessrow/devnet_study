@@ -11,7 +11,7 @@
         "device_type": "cisco_ios",
         "ip": "10.20.0.1",
         "username": "admin",
-        "password": "cisco12345",
+        "password": "cisco1234",
         "port": 22
     },
 
