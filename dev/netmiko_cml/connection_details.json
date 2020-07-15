@@ -1,0 +1,25 @@
+{
+    "R1": {
+        "device_type": "cisco_ios",
+        "ip": "10.20.0.2",
+        "username": "admin",
+        "password": "cisco1234",
+        "port": 22
+    },
+
+    "R2": {
+        "device_type": "cisco_ios",
+        "ip": "10.20.0.1",
+        "username": "admin",
+        "password": "cisco12345",
+        "port": 22
+    },
+
+    "R3": {
+        "device_type": "cisco_ios",
+        "ip": "10.20.10.1",
+        "username": "gustav",
+        "password": "testtest1234",
+        "port": 22
+    }
+}
