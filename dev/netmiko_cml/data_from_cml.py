@@ -8,18 +8,6 @@ def load_variables():
         devices = json.load(variables)
         return devices
 
-def get_device_list():
-    
-    with open('dev/netmiko_cml/connection_details.json', 'r') as variables:
-        
-        data = json.load(variables)
-        devices = []
-
-        for x in data:
-            devices.append(x)
-
-        return devices
-
 def get_interface_information(device, router):
     try:
         router = device['{}'.format(router)]
@@ -45,16 +33,20 @@ def get_up_interfaces(device, int_number):
 
     return up_interfaces
 
-def presenting():
+def presenting_interfaces():
 
-    devices = get_device_list()
-    count = len(devices)
+    try:
+        devices = list(load_variables())
+        count = len(devices)
 
-    for x in range(count):
-        device = get_interface_information(load_variables(), devices[x])
+        for x in range(count):
+            device = get_interface_information(load_variables(), devices[x])
 
-        print('Device {} has the following active interfaces:'.format(get_device_list()[x]))
-        print('\n'.join(get_up_interfaces(device[0], device[1])), '\n')
+            print('Device {} has the following active interfaces:'.format(devices[x]))
+            print('\n'.join(get_up_interfaces(device[0], device[1])), '\n')
 
-print(presenting())
+    except TypeError:
+        print('''There's an issue''')
+
+print(presenting_interfaces())
 

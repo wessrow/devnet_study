@@ -19,7 +19,15 @@
         "device_type": "cisco_ios",
         "ip": "10.20.10.1",
         "username": "gustav",
-        "password": "testtest1234",
+        "password": "testtest12345",
+        "port": 22
+    },
+
+    "R4": {
+        "device_type": "cisco_ios",
+        "ip": "10.20.20.2",
+        "username": "admin1",
+        "password": "adminadmin1234",
         "port": 22
     }
 }
