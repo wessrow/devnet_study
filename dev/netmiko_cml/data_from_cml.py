@@ -25,14 +25,14 @@ def get_interface_information(device, number):
         print('Failure to connect to {}, {}'.format(number, router['ip']))
         return False
         
-def get_up_interfaces(device, int_number):
+def get_up_interfaces(data, interfaces):
 
     up = 'up'
     up_interfaces = []
 
-    for x in range(int_number):
-        if device[x]['proto'] == up:
-            up_interfaces.append('\t {} is up, IP-address: {}'.format(device[x]['intf'], device[x]['ipaddr']))
+    for x in range(interfaces):
+        if data[x]['proto'] == up:
+            up_interfaces.append('\t {} is up, IP-address: {}'.format(data[x]['intf'], data[x]['ipaddr']))
 
     return up_interfaces
 
@@ -44,14 +44,14 @@ def presenting_interfaces():
     for x in range(count):
 
         try:
-            device = get_interface_information(load_device_information(), devices[x])
+            data = get_interface_information(load_device_information(), devices[x])
 
-            if device == False:
+            if data == False:
                 raise Exception
 
             else:
                 print('Device {} has the following active interfaces:'.format(devices[x]))
-                print('\n'.join(get_up_interfaces(device[0], device[1])), '\n')
+                print('\n'.join(get_up_interfaces(data[0], data[1])), '\n')
 
         except Exception:
             print('\t Connection Error - No interfaces to display.', '\n')
