@@ -56,4 +56,5 @@ def presenting_interfaces():
         except Exception:
             print('\t Connection Error - No interfaces to display.', '\n')
 
-presenting_interfaces()
+if __name__ == '__main__':
+    presenting_interfaces()
