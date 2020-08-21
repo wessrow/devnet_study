@@ -17,9 +17,8 @@ def main():
             <filter>
                 <native>
                     <interface>
-                        <GigabitEthernet>
-                            <name>{}</name>
-                        </GigabitEthernet>
+                        <Loopback>
+                        </Loopback>
                     </interface>   
                 </native>
             </filter>
@@ -27,11 +26,11 @@ def main():
 
     with manager.connect(**connect_info) as conn:
 
-        response = conn.get_config(source='running', filter=(filter.format(2)))
+        response = conn.get_config(source='running', filter=(filter))
 
     jresp = xmltodict.parse(response.xml)
 
-    print(json.dumps(jresp, indent=2))
+    print(json.dumps(jresp['rpc-reply']['data'], indent=2))
 
 if __name__ == '__main__':
     main()
