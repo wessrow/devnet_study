@@ -1,0 +1,44 @@
+{
+    "R1": {
+        "device_type": "cisco_ios",
+        "ip": "10.20.0.2",
+        "username": "admin",
+        "password": "cisco1234",
+        "port": 22
+    },
+
+    "R2": {
+        "device_type": "cisco_ios",
+        "ip": "10.20.0.1",
+        "username": "admin",
+        "password": "cisco12345",
+        "port": 22
+    },
+
+    "R3": {
+        "device_type": "cisco_ios",
+        "ip": "10.20.10.1",
+        "username": "gustav",
+        "password": "testtest1234",
+        "port": 22
+    },
+
+    "R4": {
+        "device_type": "cisco_ios",
+        "ip": "10.20.20.2",
+        "username": "admin1",
+        "password": "adminadmin1234",
+        "port": 22
+    },
+
+    "R5": {
+        "host": "10.20.30.2",
+        "username": "admin",
+        "password": "hejhej123",
+        "port": 830,
+        "hostkey_verify": false,
+        "allow_agent": false,
+        "look_for_keys": false,
+        "device_params": {"name": "csr"}       
+    }
+}
