@@ -9,21 +9,19 @@ def load_devices():
 
         return devices
     
-def main():
+def main(loopback):
 
-    connect_info = load_devices()['R5']
-
-    
+    connect_info = load_devices()['R5']   
 
     with manager.connect(**connect_info) as conn:
         print('Connecting to {}'.format(connect_info['host']))
 
-        response = add_interface(conn)
+        response = add_interface(loopback,conn)
 
         if response.ok:
             print('Interface added, closing connection to {}'.format(connect_info['host']))
 
-def add_interface(conn):
+def add_interface(loopback, conn):
 
     payload = {
         "config": {
@@ -31,11 +29,11 @@ def add_interface(conn):
                 "@xmlns": "http://cisco.com/ns/yang/Cisco-IOS-XE-native",
                 "interface": {
                     "Loopback": {
-                        "name": "7",
+                        "name": "{0}".format(loopback),
                         "ip": {
                             "address": {
                                 "primary": {
-                                    "address": "7.7.7.7",
+                                    "address": "{0}.{0}.{0}.{0}".format(loopback),
                                     "mask": "255.255.255.255"
                                 }
                             }
@@ -53,4 +51,8 @@ def add_interface(conn):
     return config_response
 
 if __name__ == '__main__':
-    main()
+    
+    loopback = int(input('Enter a new loopback-address: '))
+
+    if 255 > loopback > 0:    
+        main(loopback)

@@ -30,7 +30,22 @@ def main():
 
     jresp = xmltodict.parse(response.xml)
 
+    return jresp
+
+def show_loopbacks():
+
+    jresp = main()
+
+    loopbacks = jresp['rpc-reply']['data']['native']['interface']['Loopback']
+
+    for loopback in loopbacks:
+        print('Loopback {} has IP-address {}'.format(loopback['name'], loopback['ip']['address']['primary']['address']))
+
+def show_interfaces():
+
+    jresp = main()
+
     print(json.dumps(jresp['rpc-reply']['data'], indent=2))
 
 if __name__ == '__main__':
-    main()
+    show_interfaces()
