@@ -31,7 +31,7 @@ def add_interface(loopback, conn):
                     "Loopback": {
                         "name": "{0}".format(loopback),
                         "ip": {
-                            "address": {
+                            "address ": {
                                 "primary": {
                                     "address": "{0}.{0}.{0}.{0}".format(loopback),
                                     "mask": "255.255.255.255"
@@ -43,7 +43,7 @@ def add_interface(loopback, conn):
             }
         }
     }
-
+    
     xpayload = xmltodict.unparse(payload)
 
     config_response = conn.edit_config(target='running', config=xpayload)
@@ -51,7 +51,6 @@ def add_interface(loopback, conn):
     return config_response
 
 if __name__ == '__main__':
-    
     loopback = int(input('Enter a new loopback-address: '))
 
     if 255 > loopback > 0:    

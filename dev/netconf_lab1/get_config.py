@@ -48,4 +48,4 @@ def show_interfaces():
     print(json.dumps(jresp['rpc-reply']['data'], indent=2))
 
 if __name__ == '__main__':
-    show_interfaces()
+    show_loopbacks()
