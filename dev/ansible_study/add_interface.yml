@@ -1,0 +1,9 @@
+---
+- name: "PLAY 1: Add an interface to routers"
+  hosts: "restconf_routers"
+  tasks:
+    - name: "TASK 1: test"
+      restconf_config:
+        path: "/data/ietf-interfaces:interfaces"
+        content: "{{ new_interface | to_json }}"
+...
