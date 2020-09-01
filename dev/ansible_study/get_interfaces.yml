@@ -1,0 +1,21 @@
+---
+- name: "PLAY 1: Get interfaces"
+  hosts: "restconf_routers"
+  tasks:
+    - name: "TASK 1: Get YANG-listed interfaces via RESTCONF"
+      restconf_get:
+        path: "/data/ietf-interfaces:interfaces"
+      register: "restconf_data"
+
+    - name: "TASK 2: Create directory to store output"
+      file:
+        path: "saved_data"
+        state: "directory"
+      run_once: true
+      delegate_to: "localhost"
+
+    - name: "TASK 3: Save output as JSON"
+      copy:
+        content: "{{ restconf_data.response | to_nice_json(indent=2) }}"
+        dest: "saved_data/{{ inventory_hostname }}_interfaces.json"
+...

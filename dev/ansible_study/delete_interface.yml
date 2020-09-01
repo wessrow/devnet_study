@@ -1,0 +1,12 @@
+---
+- name: "PLAY 1: Delete the created interface"
+  hosts: "restconf_routers"
+  tasks:
+    - name: "TASK 1: Delete the interface we created"
+      restconf_config:
+        path: "/data/ietf-interfaces:interfaces/interface={{ item['name'] }}"
+        method: "delete"
+      loop: "{{ new_interface['interface'] }}"
+      loop_control:
+        label: "{{ item['name'] }}"
+...
