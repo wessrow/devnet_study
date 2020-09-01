@@ -3,6 +3,7 @@ import xmltodict
 from ncclient import manager
 
 def load_devices():
+    
     with open('dev/netconf_lab1/connection_details.json', 'r') as info:
 
         devices = json.load(info)
@@ -26,9 +27,12 @@ def main():
 
     with manager.connect(**connect_info) as conn:
 
-        response = conn.get_config(source='running', filter=(filter))
+        response = conn.get_config(source='running', filter=filter)
 
     jresp = xmltodict.parse(response.xml)
+
+    # with open('testing_saving_config.txt', 'w') as fill:
+    #     fill.write(json.dumps(jresp, indent=2))
 
     return jresp
 
@@ -45,7 +49,7 @@ def show_interfaces():
 
     jresp = main()
 
-    print(json.dumps(jresp['rpc-reply']['data'], indent=2))
+    print(json.dumps(jresp['rpc-reply']['data']['native'], indent=2))
 
 if __name__ == '__main__':
     show_loopbacks()

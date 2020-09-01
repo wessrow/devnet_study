@@ -31,7 +31,7 @@ def add_interface(loopback, conn):
                     "Loopback": {
                         "name": "{0}".format(loopback),
                         "ip": {
-                            "address ": {
+                            "address": {
                                 "primary": {
                                     "address": "{0}.{0}.{0}.{0}".format(loopback),
                                     "mask": "255.255.255.255"
@@ -53,5 +53,5 @@ def add_interface(loopback, conn):
 if __name__ == '__main__':
     loopback = int(input('Enter a new loopback-address: '))
 
-    if 255 > loopback > 0:    
+    if 224 > loopback > 0:    
         main(loopback)

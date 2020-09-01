@@ -5,8 +5,7 @@
 
         <script>
             function Test(x, y) {
-                document.getElementById("testform").submit();
-                document.getElementById("math").write=x+y;
+                return x + y;
             }
         </script>
 
@@ -15,11 +14,11 @@
 
         <!-- <button type="button" onclick="document.getElementById('demo').innerHTML='My <b>First</b> JavaScript'">Click me!</button> -->
         
-        <form id="testform">
+        <form id="testform" onsubmit="return Test();">
             Number 1:<input name="x" type="number" /><br>
             Number 2:<input name="y" type="number" /></br>
 
-            <input type="button" onclick="Test(x, y)" value="Submit!">
+            <input type="submit" value="Submit!">
         </form>
 
     </body>
