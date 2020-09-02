@@ -37,13 +37,12 @@ def req(resource, method="GET", payload=None):
 def wait_for_task(taskId, wait_time=5 , attempts=3):
 
     for i in range(attempts):
-        print(i)
         time.sleep(wait_time)
 
         task_resp = req(f"/task/{taskId}")
 
         if "endTime" in task_resp["response"]:
-            fileId = json.loads(task_resp["response"]["progress"])["fileId"]
+            fileId = json.loads(task_resp["response"]["progress"])
 
             return fileId
 
@@ -54,5 +53,5 @@ def load_task_result(fileId):
 
     response = req(f"/file/{fileId}")
 
-    return response
+    return response[0]["commandResponses"]
 

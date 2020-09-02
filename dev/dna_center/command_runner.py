@@ -1,7 +1,7 @@
+#!/usr/bin/env python3
+
 import json
-import time
 import sys
-import requests
 from dna_functions import req, wait_for_task, load_task_result
 
 def send_command(command="show clock"):
@@ -19,7 +19,7 @@ def main(command="show clock"):
 
     taskId = send_command(command)['response']['taskId']
 
-    response = load_task_result(wait_for_task(taskId, 5, 10))    
+    response = load_task_result(wait_for_task(taskId)["fileId"])    
 
     return response    
 
