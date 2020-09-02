@@ -5,6 +5,7 @@ import requests
 from requests.auth import HTTPBasicAuth
 
 host = "sandboxdnac.cisco.com"
+requests.packages.urllib3.disable_warnings()
 
 def get_token():
     with open("dev/dna_center/credentials.json", "r") as handle:
@@ -17,7 +18,7 @@ def get_token():
 def req(resource, method="GET", json=None):
     
     basicURL = f"https://{host}/dna/intent/api/v1"
-    
+         
     headers = {
         "content-type": "application/json",
         "accept": "application/json",
