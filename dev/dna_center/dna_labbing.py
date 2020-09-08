@@ -39,10 +39,10 @@ def get_device_info(devices, id):
     pass
 
 if __name__ == "__main__":
-#   device_uptime(load_devices())
+    print(json.dumps(load_devices(), indent=2))
 
 #   get_device_info(load_devices(), find_id_from_ip('10.10.22.253'))
 
 #   print(find_id_from_ip('10.10.22.73'))
 
-    print(json.dumps(req('/network-device-poller/cli/legit-reads')['response'], indent=2))
+#    print(json.dumps(req('/network-device-poller/cli/legit-reads')['response'], indent=2))

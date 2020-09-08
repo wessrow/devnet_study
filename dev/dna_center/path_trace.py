@@ -10,13 +10,13 @@ def main():
     }
 
     flowId = req("/flow-analysis", "POST", payload)
-    print(flowId)
+    print(flowId["response"]["taskId"])
 
     time.sleep(10)
 
-    response = req(f"/flow-analysis/{flowId['response']['flowAnalysisId']}")
+    #response = req(f"/flow-analysis/{flowId['response']['flowAnalysisId']}")
 
-    return response
+    #return response
 
 if __name__ == "__main__":
-    print(json.dumps(main(), indent=2))
+    print(json.dumps(main(), indent=2)) 
