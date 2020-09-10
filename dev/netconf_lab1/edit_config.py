@@ -30,6 +30,7 @@ def add_interface(loopback, conn):
                 "interface": {
                     "Loopback": {
                         "name": "{0}".format(loopback),
+                        "description": "Added with Netconf!",
                         "ip": {
                             "address": {
                                 "primary": {

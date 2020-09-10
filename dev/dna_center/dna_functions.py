@@ -10,7 +10,7 @@ host = "sandboxdnac.cisco.com"
 requests.packages.urllib3.disable_warnings()
 
 def get_token():
-    with open("dev/dna_center/credentials.json", "r") as handle:
+    with open("credentials.json", "r") as handle:
         login = json.load(handle)['DevNet_Always_On']
         #login = json.load(handle)['Sandbox 7/9']
 

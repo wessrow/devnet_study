@@ -1,0 +1,18 @@
+<config>
+    <mdt-config-data xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-mdt-cfg">
+        <mdt-subscription>
+            <subscription-id>115</subscription-id>
+            <base>
+                <stream>yang-push</stream>
+                <encoding>encode-kvgpb</encoding>
+                <period>1000</period>
+                <xpath>/ospf-ios-xe-oper:ospf-oper-data/ospf-state/ospf-instance/process-id</xpath>
+            </base>
+            <mdt-receivers>
+                <address>10.0.10.1</address>
+                <port>57505</port>
+                <protocol>grpc-tcp</protocol>
+            </mdt-receivers>
+        </mdt-subscription>
+    </mdt-config-data>
+</config>

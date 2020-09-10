@@ -40,5 +40,16 @@
         "allow_agent": false,
         "look_for_keys": false,
         "device_params": {"name": "csr"}       
+    },
+
+    "R6": {
+        "host": "10.20.35.2",
+        "username": "netconf_admin",
+        "password": "testing123",
+        "port": 830,
+        "hostkey_verify": false,
+        "allow_agent": false,
+        "look_for_keys": false,
+        "device_params": {"name": "csr"}       
     }
 }

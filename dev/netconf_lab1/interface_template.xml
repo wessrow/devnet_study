@@ -1,0 +1,15 @@
+<config>
+    <interfaces xmlns="urn:ietf:params:xml:ns:yang:ietf-interfaces">
+        <interface>
+            <name>{int_name}</name>
+            <description>{int_desc}</description>
+            <enabled>{int_state}</enabled>
+            <ipv4 xmlns="urn:ietf:params:xml:ns:yang:ietf-ip">
+                <address>
+                    <ip>{ip_address}</ip>
+                    <netmask>{subnet_mask}</netmask>
+                </address>
+            </ipv4>            
+        </interface>
+    </interfaces>
+</config>

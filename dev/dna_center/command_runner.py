@@ -51,12 +51,12 @@ def main(command="show clock"):
 
 if __name__ == "__main__":
 
-    print(json.dumps(main(), indent=2))
+    #print(json.dumps(main(), indent=2))
     #print(json.dumps(send_command("show clock", ["3c862467-be33-4c0c-ab9b-54e674c19db1"])))
 
-    # if len(sys.argv) < 2:
-    #     print(main())
+    if len(sys.argv) < 2:
+        print(json.dumps(main()))
 
-    # else:
-    #     print(main(sys.argv[1]))
+    else:
+        print(json.dumps(main(sys.argv[1]), indent=2))
         
