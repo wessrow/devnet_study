@@ -39,7 +39,7 @@ def get_device_info(devices, id):
     pass
 
 if __name__ == "__main__":
-    print(json.dumps(load_devices(), indent=2))
+    print(json.dumps(load_devices()[0], indent=2))
 
 #   get_device_info(load_devices(), find_id_from_ip('10.10.22.253'))
 

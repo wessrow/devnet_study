@@ -1,7 +1,14 @@
 {
     "DevNet_Always_On": {
         "host": "sandbox-sdwan-1.cisco.com",
+        "port": 443,
         "username": "devnetuser",
         "password": "RG!_Yw919_83"
+    },
+    "DevNet_Reservable": {
+        "host": "10.10.20.90",
+        "port": 8443,
+        "username": "xxx",
+        "password": "xxx"
     }
 }

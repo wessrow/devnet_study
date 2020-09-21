@@ -15,7 +15,6 @@ def get_deviceId():
 
     return uuids
 
-
 def send_command(command="show clock", devices=["1cfd383a-7265-47fb-96b3-f069191a0ed5"]):
 
     taskIds = []
@@ -47,15 +46,14 @@ def main(command="show clock"):
 
         finished_tasks.append(response)
 
+        print(f"Finished with Task ID: {id}")
+
     return finished_tasks        
 
 if __name__ == "__main__":
 
-    #print(json.dumps(main(), indent=2))
-    #print(json.dumps(send_command("show clock", ["3c862467-be33-4c0c-ab9b-54e674c19db1"])))
-
     if len(sys.argv) < 2:
-        print(json.dumps(main()))
+        print(json.dumps(main(), indent=2))
 
     else:
         print(json.dumps(main(sys.argv[1]), indent=2))
