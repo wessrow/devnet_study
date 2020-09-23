@@ -4,7 +4,7 @@ import json
 
 requests.packages.urllib3.disable_warnings()
 
-class SD_Wan():
+class SD_Wan:
 
     def __init__(self, vmanage, port, username, password):
         self.vmanage = vmanage
@@ -109,7 +109,7 @@ if __name__ == "__main__":
 
     sdwan = SD_Wan(vmanage, port, username, password)
 
-    print(json.dumps(sdwan.get_all_devices()["data"], indent=2))
+    print(json.dumps(sdwan.get_all_devices(model="vmanage")["data"], indent=2))
 
     #show_data()    
 

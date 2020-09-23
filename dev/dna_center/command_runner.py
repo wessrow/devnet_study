@@ -28,27 +28,31 @@ def send_command(command="show clock", devices=["1cfd383a-7265-47fb-96b3-f069191
 
         response = req('/network-device-poller/cli/read-request', "POST", payload)
 
-        taskIds.append(response)
+        if response == None:
+            taskIds.append("Error")
+
+        else:
+            taskIds.append(response)
 
     return taskIds
 
-def main(command="show clock"):
-
+def main(command="ping 10.10.22.253"):
+    
     taskIds = send_command(command, get_deviceId())
-
     finished_tasks = []
+    
+    try:
+        for taskId in taskIds:
+            id = taskId["response"]["taskId"]
+            response = load_task_result(wait_for_task(id)["fileId"])
+            finished_tasks.append(response)
+            print(f"Finished with Task ID: {id}")
 
-    for taskId in taskIds:
+        return finished_tasks  
 
-        id = taskId["response"]["taskId"]
-
-        response = load_task_result(wait_for_task(id)["fileId"])
-
-        finished_tasks.append(response)
-
-        print(f"Finished with Task ID: {id}")
-
-    return finished_tasks        
+    except Exception as ex:
+        print(f"Error: {ex}")
+        sys.exit(1)     
 
 if __name__ == "__main__":
 

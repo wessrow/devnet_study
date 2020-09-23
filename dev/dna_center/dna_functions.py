@@ -30,13 +30,15 @@ def req(resource, method="GET", payload=None):
         "X-Auth-Token": f"{get_token()}"
     }
 
-    url = f"{basicURL}{resource}"
-
-    response = requests.request(method, url=url, headers=headers, data=json.dumps(payload), verify=False)
+    response = requests.request(method, url=f"{basicURL}{resource}", headers=headers, data=json.dumps(payload), verify=False)
 
     #print(response.status_code)
 
-    return response.json()
+    if response.status_code in {200,201,202,204}:
+        return response.json()
+
+    else:
+        print(f"Error handling request: {response.status_code}")
 
 def wait_for_task(taskId, wait_time=5 , attempts=3):
 
