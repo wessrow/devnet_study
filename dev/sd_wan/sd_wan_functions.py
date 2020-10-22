@@ -16,6 +16,7 @@ class SD_Wan:
 
         headers = {"Accept": "content/json", "Content-Type": "application/x-www-form-urlencoded"} 
         url = f"https://{vmanage}:{port}/j_security_check"
+
         parameters = {"j_username": username, "j_password": password}
         session = requests.session()
 
@@ -109,9 +110,9 @@ if __name__ == "__main__":
 
     sdwan = SD_Wan(vmanage, port, username, password)
 
-    print(json.dumps(sdwan.get_all_devices(model="vmanage")["data"], indent=2))
+    #print(json.dumps(sdwan.get_all_devices()["data"], indent=2))
 
-    #show_data()    
+    show_data()    
 
     # print(sdwan.create_user("wessrow", "cisco123", "netadmin"))
 
